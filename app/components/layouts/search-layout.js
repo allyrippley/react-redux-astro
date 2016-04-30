@@ -4,7 +4,7 @@ import SearchFormContainer from '../containers/search-form-container';
 // Using "Stateless Functional Components"
 export default function(props) {
   return (
-    <div className="search">
+    <div>
       <header className="search-header">
         {props.title}
         <SearchFormContainer searchType={props.searchType} />

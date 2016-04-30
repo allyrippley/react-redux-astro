@@ -11,6 +11,7 @@ const EventProfileContainer = React.createClass({
   },
 
   render: function() {
+    window.console.log(this.props.profile)
     return (
       <EventProfile {...this.props.profile} />
     );

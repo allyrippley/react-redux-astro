@@ -5,12 +5,20 @@ import SearchLayout from '../layouts/search-layout';
 const mapStateToProps = function(store) {
 
   let searchType = store.searchLayoutState.searchType;
-  let totalResults = 0;
+  let totalResults = 0
 
-  if (searchType === 'planets') {
-    totalResults = store.planetState.planets.length;
-  } else if (searchType === 'widgets') {
-    totalResults = store.widgetState.widgets.length;
+  switch(searchType) {
+    case 'planets':
+      totalResults = store.planetState.planets.length
+      break
+    case 'widgets':
+      totalResults = store.widgetState.widgets.length
+      break
+    case 'events':
+      totalResults = store.eventState.events.length;
+      break
+    default:
+      totalResults = totalResults
   }
 
   return {

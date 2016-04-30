@@ -9,11 +9,11 @@ export default function(props) {
       {props.planets.map(planet => {
 
         return (
-          <div key={planet.id} className="data-list-item">
+          <div key={planet.id} style={{display: 'flex', flexDirection: 'row'}}>
             <div className="details">
               <Link to={'/planet/' + planet.id}>{planet.name}</Link>
             </div>
-            <div className="controls">
+            <div style={{ marginLeft: 'auto' }}>
               <button onClick={props.deletePlanet.bind(null, planet.id)} className="delete">Delete</button>
             </div>
           </div>

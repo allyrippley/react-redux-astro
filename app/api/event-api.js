@@ -54,29 +54,15 @@ export function getProfile(eventId) {
     .then(response => {
 
       let event = response.data;
-      profile.name = event.name;
-      profile.desc = !event.desc ? 'No description available' : event.desc;
+      profile.date = event.date
+      profile.id = event.id
+      profile.planet = event.planet
+      profile.type = event.type
+      profile.sign = event.sign
+      profile.degree = event.degree ? event.degree : ''
 
-      // Then use the github attribute from the previous request to
-      // sent two XHR requests to GitHub's API. The first for their
-      // general event info, and the second for their repos.
-      // return Promise.all([
-      //   axios.get('https://api.github.com/events/' + event.github),
-      //   axios.get('https://api.github.com/events/' + event.github + '/repos')
-      // ]).then(results => {
-      //
-      //   let githubProfile = results[0].data;
-      //   let githubRepos = results[1].data;
-      //
-      //   profile.imageUrl = githubProfile.avatar_url;
-      //   profile.repos = githubRepos;
-      //
-      //   store.dispatch(eventProfileSuccess(profile));
-      //
-      //   return;
-      //
-      // });
-
+      store.dispatch(eventProfileSuccess(profile));
+      return;
     });
 
 }
